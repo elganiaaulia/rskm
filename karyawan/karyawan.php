@@ -32,7 +32,7 @@ if ($msg == 'error') {
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
 }
-if ($msg == 'upadated') {
+if ($msg == 'updated') {
     $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
     <i class="fa-solid fa-circle-check"></i> Data karyawan berhasil diperbarui..
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -120,6 +120,7 @@ if ($msg == 'cancel') {
                         </table>
                     </div>
 </div>
+                        </div>
                 </main>
 
 

@@ -32,24 +32,36 @@ if (isset($_POST['update'])) {
     $nama   = htmlspecialchars($_POST['nama']);
     $unit   = $_POST['unit'];
     $jam    = $_POST['jam'];
-
+    
+    
+    // echo("<script type='text/javascript'> console.log($id);</script>");
+    
     $sqlKaryawan = mysqli_query($koneksi, "SELECT * FROM tbl_karyawan WHERE id = $id");
     $data = mysqli_fetch_array($sqlKaryawan);
     $curNIK = $data['nik'];
-
-    $newNIK = mysqli_query($koneksi, "SELECT nik FROM tbl_karyawan WHERE nik = $nik");
-
+    $curNama = $data['nama'];
+    $curUnit = $data['unit'];
+    $curJam = $data['jumlahjam'];
+    
+    $nikcondition = 0 ;
     if ($nik !== $curNIK) {
-        if (mysqli_num_rows($newNIK) > 0) {
+        $newNIK = mysqli_query($koneksi, "SELECT nik FROM tbl_karyawan WHERE nik = $nik");
+        $nikcondition = mysqli_num_rows($newNIK) ;
+    }
+
+    if ($nik !== $curNIK or $nama !== $curNama or $unit !== $curUnit or $jam !== $curJam) {
+        if ($nikcondition > 0 ) {
             header('location:karyawan.php?msg=cancel');
             return;
         }
         mysqli_query($koneksi, "UPDATE tbl_karyawan SET
                             nik = '$nik',
                             nama = '$nama',
-                            unit = '$unit'
+                            unit = '$unit',
+                            jumlahjam = '$jam'
                             WHERE id = $id
                         ");
+
 
     header("location:karyawan.php?msg=updated");
     return;

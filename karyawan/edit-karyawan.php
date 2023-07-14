@@ -31,7 +31,7 @@ $data = mysqli_fetch_array($queryKaryawan);
                             <li class="breadcrumb-item"><a href="karyawan.php">Karyawan</a></li>
                             <li class="breadcrumb-item active">Update Karyawan</li>
                         </ol>
-                        <form action="karyawan.php" method="POST" enctype="multipart/form-data">
+                        <form action="proses-karyawan.php" method="POST" enctype="multipart/form-data">
                         <div class="card">
                             <div class="card-header">
                                 <span class="h5 my-2"><i class="fa-solid fa-pen-to-square"></i>Update Karyawan</span>
@@ -151,7 +151,7 @@ $data = mysqli_fetch_array($queryKaryawan);
                                             <label for="jam" class="col-sm-2 col-form-label">Tambah Jam</label>
                                             <label for="nik" class="col-sm-1 col-form-label">:</label>
                                         <div class="col-sm-9" style="margin-left: -50px;">
-                                            <input type="number" name="jam" class="form-control-plaintext border-bottom ps-2" id="nik" value="<?= $data['jam'] ?>">
+                                            <input type="number" name="jam" class="form-control-plaintext border-bottom ps-2" id="nik" value="<?= $data['jumlahjam'] ?>">
                                         </div> 
                                         </div>
                                 </div>
