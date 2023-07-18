@@ -15,7 +15,7 @@ if(isset($_POST['simpan'])) {
     $tglmulai   = $_POST['tgl_mulai'];
     $tglselesai = $_POST['tgl_selesai'];
 
-    mysqli_query($koneksi, "INSERT INTO tbl_periode(nama) VALUES ('$nama')");
+    mysqli_query($koneksi, "INSERT INTO tbl_periode(nama, tgl_mulai, tgl_selesai) VALUES ('$nama', '$tglmulai', '$tglselesai')");
         header('location:periode.php?msg=added');
 
 }
