@@ -11,7 +11,7 @@ require_once "../config.php";
 
 
 if(isset($_POST['simpan'])) {
-    $nama   = htmlspecialchars($_POST['nama']);
+    $nama       = htmlspecialchars($_POST['nama']);
     $tglmulai   = $_POST['tgl_mulai'];
     $tglselesai = $_POST['tgl_selesai'];
 

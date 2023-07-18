@@ -28,7 +28,7 @@ if ($msg == 'cancel') {
 } 
 if ($msg == 'added') {
     $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <i class="fa-solid fa-circle-check"></i> Tambah unit berhasil..
+    <i class="fa-solid fa-circle-check"></i> Tambah periode berhasil..
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
 }
@@ -46,9 +46,9 @@ if ($msg == 'added') {
                             <li class="breadcrumb-item active">Tambah Periode</li>
                         </ol>
                         <form action="proses-periode.php" method="POST" enctype="multipart/form-data">
-                            <!-- <?php if ($msg != '') {
+                            <?php if ($msg != '') {
                                 echo $alert;
-                            } ?> -->
+                            } ?>
                         <div class="card">
                             <div class="card-header">
                                 <span class="h5 my-2"><i class="fa-solid fa-plus"></i>Tambah Periode</span>

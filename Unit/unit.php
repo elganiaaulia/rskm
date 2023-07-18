@@ -66,6 +66,7 @@ if ($msg == 'updated') {
                             <th scope="col">No</th>
                             <th scope="col"><center>Nama</center></th>
                             <th scope="col"><center>Status Aktif</center></th>
+                            <th scope="col"><center>Operator</center></th>
                         </thead>
                         <tbody>
                             <?php
