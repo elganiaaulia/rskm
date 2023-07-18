@@ -12,6 +12,9 @@ if (!empty($_SESSION ['username'])) {
     require_once "template/navbar.php" ;
     require_once "template/sidebar.php" ;
 
+    $queryKaryawan = mysqli_query($koneksi, "SELECT * FROM tbl_karyawan");
+    $jmlKaryawan = mysqli_num_rows($queryKaryawan);
+
 ?>
             <div id="layoutSidenav_content">
                 <main>
@@ -25,7 +28,7 @@ if (!empty($_SESSION ['username'])) {
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Jumlah Karyawan</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">0 Orang</a>
+                                        <a class="small text-white stretched-link" href="#"><?= $jmlKaryawan . ' Orang'?></a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

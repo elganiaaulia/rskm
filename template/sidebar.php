@@ -27,9 +27,13 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                                 Karyawan
                             </a>
-                            <a class="nav-link" href="<?= $main_url?>pelatihan/pelatihan.php">
-                                <div class="sb-nav-link-icon"><i class="fa-brands fa-unity"></i></div>
-                                Pelatihan
+                            <a class="nav-link" href="<?= $main_url ?>unit/unit.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-people-roof"></i></div>
+                                Unit
+                            </a>
+                            <a class="nav-link" href="<?= $main_url ?>periode/periode.php">
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-regular fa-timer"></i></div>
+                                Periode
                             </a>
                             <a class="nav-link" href="<?= $main_url?>index.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-book-user"></i></div>
