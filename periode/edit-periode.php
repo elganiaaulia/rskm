@@ -29,7 +29,7 @@ $data = mysqli_fetch_array($queryPeriode);
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                             <li class="breadcrumb-item"><a href="periode.php">Periode</a></li>
-                            <li class="breadcrumb-item active">Update Unit</li>
+                            <li class="breadcrumb-item active">Update Periode</li>
                         </ol>
                         <form action="proses-periode.php" method="POST" enctype="multipart/form-data">
                         <div class="card">

@@ -65,6 +65,20 @@ if ($msg == 'added') {
                                             <input type="text" name="nama" class="form-control-plaintext border-bottom ps-2" id="nama" value="" required>
                                         </div> 
                                         </div>
+                                        <div class="mb-3 row">
+                                            <label for="nama" class="col-sm-2 col-form-label">Tanggal Mulai</label>
+                                            <label for="nama" class="col-sm-1 col-form-label">:</label>
+                                        <div class="col-sm-9" style="margin-left: -50px;">
+                                            <input type="date" name="nama" class="form-control-plaintext border-bottom ps-2" id="nama" value="" required>
+                                        </div> 
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label for="nama" class="col-sm-2 col-form-label">Tanggal Selesai</label>
+                                            <label for="nama" class="col-sm-1 col-form-label">:</label>
+                                        <div class="col-sm-9" style="margin-left: -50px;">
+                                            <input type="date" name="nama" class="form-control-plaintext border-bottom ps-2" id="nama" value="" required>
+                                        </div> 
+                                        </div>
                                     </div>
                                 </div>
                             </div>

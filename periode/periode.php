@@ -8,7 +8,7 @@ if (!isset ($_SESSION ['username'] )) {
 }
 
 require_once "../config.php";
-$title = "Unit - RSKM" ;
+$title = "Periode - RSKM" ;
 require_once "../template/header.php";
 require_once "../template/navbar.php";
 require_once "../template/sidebar.php";
@@ -75,9 +75,9 @@ require_once "../template/sidebar.php";
                             <p>Anda yakin ingin menghapus data ini?</p>
                         </div>
                         <div class="modal-footer">
-                        <form action="proses-unit.php" method="POST" enctype="multipart/form-data">
+                        <form action="proses-periode.php" method="POST" enctype="multipart/form-data">
                         <button type="button" name="btnDelete" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                            <a href="hapus-unit.php?id=<?= $id ?>" class="btn btn-primary">Ya</a>
+                            <a href="hapus-periode.php?id=<?= $id ?>" class="btn btn-primary">Ya</a>
                         </div>
                         </div>
                     </div>
@@ -95,8 +95,8 @@ require_once "../template/sidebar.php";
     $(document).ready(function(){
         $(document).on('click', "#btnHapus", function(){
             $('#mdlHapus').modal('show');
-            let idUnit = $(this).data('id');
-            $('#mdlHapus').attr("href", "hapus-unit.php?id=" + idUnit);
+            let idPeriode = $(this).data('id');
+            $('#mdlHapus').attr("href", "hapus-periode.php?id=" + idPeriode);
         })
     })
 </script>
