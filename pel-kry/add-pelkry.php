@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 
 require_once "../config.php";
 
-$title = "Tambah Karyawan - RSKM" ;
+$title = "Tambah Pelatihan Karyawan - RSKM" ;
 require_once "../template/header.php";
 require_once "../template/navbar.php";
 require_once "../template/sidebar.php";
@@ -40,13 +40,13 @@ if ($msg == 'added') {
 <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Tambah Karyawan</h1>
+                        <h1 class="mt-4">Tambah Pelatihan Karyawan</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
-                            <li class="breadcrumb-item"><a href="karyawan.php">Karyawan</a></li>
-                            <li class="breadcrumb-item active">Tambah Karyawan</li>
+                            <li class="breadcrumb-item"><a href="pel-kry.php">Pelatihan Karyawan</a></li>
+                            <li class="breadcrumb-item active">Tambah Pelatihan Karyawan</li>
                         </ol>
-                        <form action="proses-karyawan.php" method="POST" enctype="multipart/form-data">
+                        <form action="proses-pelkry.php" method="POST" enctype="multipart/form-data">
                             <?php if ($msg != '') {
                                 echo $alert;
                             } ?>
@@ -59,29 +59,34 @@ if ($msg == 'added') {
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-8">
-                                        <div class="mb-3 row">
-                                            <label for="nik" class="col-sm-2 col-form-label">NIK</label>
-                                            <label for="nik" class="col-sm-1 col-form-label">:</label>
+                                    <div class="mb-3 row">
+                                            <label for="periode" class="col-sm-2 col-form-label">Periode</label>
+                                            <label for="periode" class="col-sm-1 col-form-label">:</label>
                                         <div class="col-sm-9" style="margin-left: -50px;">
-                                            <input type="text" name="nik" class="form-control-plaintext border-bottom ps-2" id="nik" value="" required>
+                                            <select name="periode" id="periode" class="form-select border-0 border-buttom" required>
+                                            <option value="" selected disabled>--Pilih periode--</option>
+                                            <?php
+                                            $queryPelKry = mysqli_query($koneksi, "SELECT * FROM tbl_pelkry WHERE id = 'id'");
+                                            while ($data = mysqli_fetch_array($queryPelKry)){
+                                                $id = $data['id'];
+                                                $nama = $data['nama'];
+                                            ?>
+                                            <option value="<?= $id?>"><?= $nama ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                                </select>
                                         </div>
-                                        </div>
+                                    </div>
                                         <div class="mb-3 row">
-                                            <label for="nama" class="col-sm-2 col-form-label">Nama</label>
-                                            <label for="nik" class="col-sm-1 col-form-label">:</label>
+                                            <label for="karyawan" class="col-sm-2 col-form-label">Karyawan</label>
+                                            <label for="karyawan" class="col-sm-1 col-form-label">:</label>
                                         <div class="col-sm-9" style="margin-left: -50px;">
-                                            <input type="text" name="nama" class="form-control-plaintext border-bottom ps-2" id="nik" value="" required>
-                                        </div> 
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label for="unit" class="col-sm-2 col-form-label">Unit</label>
-                                            <label for="nik" class="col-sm-1 col-form-label">:</label>
-                                        <div class="col-sm-9" style="margin-left: -50px;">
-                                            <select name="unit" id="unit" class="form-select border-0 border-buttom" required>
-                                            <option value="" selected disabled>--Pilih unit--</option>
+                                            <select name="karyawan" id="karyawan" class="form-select border-0 border-buttom" required>
+                                            <option value="" selected disabled>--Karyawan--</option>
                                             <?php
                                             
-                                            $queryUnit = mysqli_query($koneksi, "SELECT * FROM tbl_unit WHERE statusaktif = 'Ya'");
+                                            $queryKaryawan = mysqli_query($koneksi, "SELECT * FROM tbl_karyawan WHERE nama = 'nama'");
                                             while ($data = mysqli_fetch_array($queryUnit)){
                                                 $id = $data['id'];
                                                 $nama = $data['nama'];

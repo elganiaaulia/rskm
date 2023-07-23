@@ -11,12 +11,16 @@ require_once "../config.php";
 
 
 if(isset($_POST['simpan'])) {
-    $nama       = htmlspecialchars($_POST['nama']);
-    $tglmulai   = $_POST['tgl_mulai'];
-    $tglselesai = $_POST['tgl_selesai'];
+    $nama           = htmlspecialchars($_POST['nama']); 
+    $karyawan       = $_POST['karyawan'];
+    $periode        = $_POST['periode'];
+    $tglmulai       = $_POST['tgl_mulai'];
+    $tglselesai     = $_POST['tgl_selesai'];
+    $jumlahjam      = $_POST['jumlah_jam'];
+    $bukti          = htmlspecialchars($_POST['bukti']);
 
-    mysqli_query($koneksi, "INSERT INTO tbl_periode(nama, tgl_mulai, tgl_selesai) VALUES ('$nama', '$tglmulai', '$tglselesai')");
-        header('location:periode.php?msg=added');
+    mysqli_query($koneksi, "INSERT INTO tbl_pelatihan (nama, tgl_mulai, tgl_selesai, jumlah_jam, bukti) VALUES ('$nama', '$tglmulai', '$tglselesai', '$jumlahjam', '$bukti')");
+        header('location:pelatihan.php?msg=added');
 
 }
 if (isset($_POST['update'])) {

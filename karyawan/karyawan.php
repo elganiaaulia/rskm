@@ -38,9 +38,21 @@ if ($msg == 'updated') {
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
 }
+if ($msg == 'added') {
+    $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-check"></i> Data karyawan berhasil ditambahkan..
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+}
 if ($msg == 'cancel') {
-    $alert = '<div class="alert alert-anger alert-dismissible fade show" role="alert">
+    $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
     <i class="fa-solid fa-circle-xmark"></i> Data karyawan gagal diperbarui, nik sudah ada
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+} 
+if ($msg == 'cancel2') {
+    $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-xmark"></i> Data karyawan gagal ditambah, nik sudah ada
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
 } 

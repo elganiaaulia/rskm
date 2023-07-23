@@ -12,36 +12,42 @@ require_once "../config.php";
 if(isset($_POST['simpan'])) {
     $nik    = htmlspecialchars($_POST['nik']);
     $nama   = htmlspecialchars($_POST['nama']);
-    $unit   = $_POST['unit'];
+    $idUnit     = $_POST['unit'];
+    $sqlUnit    = mysqli_query($koneksi, "SELECT * FROM tbl_unit WHERE id = $idUnit");
+    $data       = mysqli_fetch_array($sqlUnit);
+    $namaUnit   = $data['nama'];
 
     $cekNik = mysqli_query($koneksi, "SELECT nik FROM tbl_karyawan WHERE nik = '$nik'");
     if (mysqli_num_rows($cekNik) > 0) {
-        header('location:karyawan.php?msg=cancel');
+        header('location:karyawan.php?msg=cancel2');
         return;
     }
 
-    mysqli_query($koneksi, "INSERT INTO tbl_karyawan (nik, nama, unit) VALUES ('$nik','$nama','$unit')");
+    mysqli_query($koneksi, "INSERT INTO tbl_karyawan (nik, nama, id_unit, unit) VALUES ('$nik','$nama','$idUnit', '$namaUnit')");
 
     header('location:karyawan.php?msg=added');
     return;
 }
 
 if (isset($_POST['update'])) {
-    $id     = $_POST['id'];
-    $nik    = htmlspecialchars($_POST['nik']);
-    $nama   = htmlspecialchars($_POST['nama']);
-    $unit   = $_POST['unit'];
-    $jam    = $_POST['jam'];
+    $id         = $_POST['id'];
+    $nik        = htmlspecialchars($_POST['nik']);
+    $nama       = htmlspecialchars($_POST['nama']);
+    $idUnit     = $_POST['unit'];
+    $sqlUnit    = mysqli_query($koneksi, "SELECT * FROM tbl_unit WHERE id = $idUnit");
+    $data       = mysqli_fetch_array($sqlUnit);
+    $namaUnit   = $data['nama'];
+    $jam        = $_POST['jam'];
     
     
     // echo("<script type='text/javascript'> console.log($id);</script>");
     
     $sqlKaryawan = mysqli_query($koneksi, "SELECT * FROM tbl_karyawan WHERE id = $id");
     $data = mysqli_fetch_array($sqlKaryawan);
-    $curNIK = $data['nik'];
-    $curNama = $data['nama'];
-    $curUnit = $data['unit'];
-    $curJam = $data['jumlahjam'];
+    $curNIK     = $data['nik'];
+    $curNama    = $data['nama'];
+    $curUnit    = $data['unit'];
+    $curJam     = $data['jumlahjam'];
     
     $nikcondition = 0 ;
     if ($nik !== $curNIK) {
@@ -55,11 +61,12 @@ if (isset($_POST['update'])) {
             return;
         }
         mysqli_query($koneksi, "UPDATE tbl_karyawan SET
-                            nik = '$nik',
-                            nama = '$nama',
-                            unit = '$unit',
-                            jumlahjam = '$jam'
-                            WHERE id = $id
+                            nik         = '$nik',
+                            nama        = '$nama',
+                            unit        = '$namaUnit' ,
+                            id_unit     = '$idUnit',
+                            jumlahjam   = '$jam'
+                            WHERE id    =  $id
                         ");
 
 

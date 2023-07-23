@@ -44,21 +44,21 @@ $data = mysqli_fetch_array($queryPeriode);
                                             <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                                             <label for="nama" class="col-sm-1 col-form-label">:</label>
                                         <div class="col-sm-9" style="margin-left: -50px;">
-                                            <input type="text" name="nama" class="form-control-plaintext border-bottom ps-2" id="nik" value="<?= $data['nama'] ?>" required>
+                                            <input type="text" name="nama" class="form-control-plaintext border-bottom ps-2" id="nama" value="<?= $data['nama'] ?>" required>
                                         </div> 
                                         </div>
                                         <div class="mb-3 row">
                                             <label for="nama" class="col-sm-2 col-form-label">Tanggal Mulai</label>
                                             <label for="nama" class="col-sm-1 col-form-label">:</label>
                                         <div class="col-sm-9" style="margin-left: -50px;">
-                                            <input type="date" name="nama" class="form-control-plaintext border-bottom ps-2" id="nama" value="" required>
+                                            <input type="date" name="tgl_mulai" class="form-control-plaintext border-bottom ps-2" id="tgl_mulai" value="<?= $data['tgl_mulai'] ?>" required>
                                         </div> 
                                         </div>
                                         <div class="mb-3 row">
                                             <label for="nama" class="col-sm-2 col-form-label">Tanggal Selesai</label>
                                             <label for="nama" class="col-sm-1 col-form-label">:</label>
                                         <div class="col-sm-9" style="margin-left: -50px;">
-                                            <input type="date" name="nama" class="form-control-plaintext border-bottom ps-2" id="nama" value="" required>
+                                            <input type="date" name="tgl_selesai" class="form-control-plaintext border-bottom ps-2" id="tgl_selesai" value="<?= $data['tgl_mulai'] ?>" required>
                                         </div> 
                                         </div>
                                     </div>

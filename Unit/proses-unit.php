@@ -30,7 +30,7 @@ if (isset($_POST['update'])) {
     $nama       = htmlspecialchars($_POST['nama']);
     $status     = $_POST['statusaktif'];
     
-    mysqli_query($koneksi, "UPDATE tbl_unit  SET nama = '$nama', statusaktif = '$status' WHERE id = '$id'");
+    mysqli_query($koneksi, "UPDATE tbl_unit SET nama = '$nama', statusaktif = '$status' WHERE id = '$id'");
     header('location:unit.php?msg=updated');
     return;
 
