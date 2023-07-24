@@ -13,7 +13,25 @@ require_once "../template/header.php";
 require_once "../template/navbar.php";
 require_once "../template/sidebar.php";
 
+if (isset($_GET['msg'])) {
+    $msg = $_GET['msg'];
+} else {
+    $msg = "";
+}
+$alert = '';
 
+if ($msg == 'error') {
+    $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-check"></i> Data pelatihan gagal dihapus..
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+}
+if ($msg == 'updated') {
+    $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-check"></i> Data Pelatihan berhasil diperbarui..
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+}
 ?>
 <div id="layoutSidenav_content">
                 <main>
@@ -31,9 +49,9 @@ require_once "../template/sidebar.php";
                     </div>
                     <div class="card-body">
                     <form action="pel-kry.php" method="POST" enctype="multipart/form-data">
-                            <!-- <?php if ($msg != '') {
+                            <?php if ($msg != '') {
                                 echo $alert;
-                            } ?> -->
+                            } ?>
                     <table class="table table-hover" id="datatablesSimple">
                         <thead>
                             <tr>
@@ -52,12 +70,12 @@ require_once "../template/sidebar.php";
                             ?>
                             <tr>
                             <th scope="row"><?= $no++ ?></th>
-                            <td><?= $data['periode'] ?></td>
-                            <td><?= $data['karyawan'] ?></td>
+                            <td><?= $data['nm_periode'] ?></td>
+                            <td><?= $data['nm_karyawan'] ?></td>
                             <td><?= $data['unit'] ?></td>
                             <td align="center">
-                                <a href="edit-pelatihan.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-warning" title="Update Pelatihan"><i class="fa-solid fa-pen-to-square"></i></a>
-                                <button type="button" class="btn btn-sm btn-danger" id="btnHapus" title="Hapus Pelatihan" data-id="<?= $id ?>" ><i class="fa-solid fa-trash"></i></button>
+                                <a href="edit-pelkry.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-warning" title="Update Pelatihan Karyawan"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <button type="button" class="btn btn-sm btn-danger" id="btnHapus" title="Hapus Pelatihan " data-id="<?= $id ?>" ><i class="fa-solid fa-trash"></i></button>
                             </td>
                             </tr>
                             <?php } ?>
@@ -77,7 +95,7 @@ require_once "../template/sidebar.php";
                         <div class="modal-footer">
                         <form action="proses-pelatihan.php" method="POST" enctype="multipart/form-data">
                         <button type="button" name="btnDelete" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                            <a href="hapus-pelatihan.php?id=<?= $id ?>" class="btn btn-primary">Ya</a>
+                            <a href="hapus-pelkry.php?id=<?= $id ?>" class="btn btn-primary">Ya</a>
                         </div>
                         </div>
                     </div>

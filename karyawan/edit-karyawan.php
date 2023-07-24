@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 
 require_once "../config.php";
 
-$title = "Tambah Karyawan - RSKM" ;
+$title = "Edit Karyawan - RSKM" ;
 require_once "../template/header.php";
 require_once "../template/navbar.php";
 require_once "../template/sidebar.php";
