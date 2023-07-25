@@ -75,7 +75,7 @@ if ($msg == 'added') {
                                             <?php
                                             }
                                             ?>
-                                                </select>
+                                            </select>
                                         </div>
                                     </div>
                                         <div class="mb-3 row">
@@ -94,7 +94,7 @@ if ($msg == 'added') {
                                             <?php
                                             }
                                             ?>
-                                                </select>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
