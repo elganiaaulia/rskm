@@ -17,7 +17,7 @@ require_once "../template/sidebar.php";
 $id = $_GET['id'];
 
 $queryPelKry = mysqli_query($koneksi, "SELECT * FROM tbl_pelkry WHERE id = $id");
-$data = mysqli_fetch_array($queryPelKry);
+$dataPelkry = mysqli_fetch_array($queryPelKry);
 
 ?>
 
@@ -34,9 +34,10 @@ $data = mysqli_fetch_array($queryPelKry);
                         <form action="proses-pelkry.php" method="POST" enctype="multipart/form-data">
                         <div class="card">
                             <div class="card-header">
+                            <span class="h5 my-2 col-2-sm"></span>
                                 <span class="h5 my-2"><i class="fa-solid fa-pen-to-square"></i>Update Pelatihan Karyawan</span>
-                                <button type="submit" name="update" class="btn btn-primary float-end"><i class="fa-solid fa-floppy-disk"></i>Update</button>
                             <div class="card-body">
+                                
                                 <div class="row">
                                     <div class="col-8">
                                         <input type="hidden" name="id" value="<?= $data['id'] ?>">
@@ -44,14 +45,13 @@ $data = mysqli_fetch_array($queryPelKry);
                                             <label for="periode" class="col-sm-2 col-form-label">Periode</label>
                                             <label for="periode" class="col-sm-1 col-form-label">:</label>
                                         <div class="col-sm-9" style="margin-left: -50px;">
-                                            <select name="periode" id="periode" class="form-select border-0 border-buttom" required>
-                                            <option value="" selected disabled>--Pilih--</option>
+                                            <select name="periode" id="periode" class="form-select border-0 border-buttom" disabled>
                                             <?php
-                                            $id_periode = $data['id_periode'];
+                                            $id_periode = $dataPelkry['id_periode'];
                                             $queryPeriode = mysqli_query($koneksi, "SELECT * FROM tbl_periode");
-                                            while ($data = mysqli_fetch_array($queryPeriode)){
-                                                $id = $data['id'];
-                                                $nama = $data['nama'];
+                                            while ($dataPeriode = mysqli_fetch_array($queryPeriode)){
+                                                $id = $dataPeriode['id'];
+                                                $nama = $dataPeriode['nama'];
                                                 if ($id == $id_periode) {
                                                     $pilih = "selected";
                                                 } else {
@@ -69,19 +69,19 @@ $data = mysqli_fetch_array($queryPelKry);
                                 </div>
                                 <div class="row">
                                     <div class="col-8">
-                                        <input type="hidden" name="id" value="<?= $data['id'] ?>">
                                         <div class="mb-3 row">
                                             <label for="karyawan" class="col-sm-2 col-form-label">Karyawan</label>
                                             <label for="karyawan" class="col-sm-1 col-form-label">:</label>
                                         <div class="col-sm-9" style="margin-left: -50px;">
-                                            <select name="karyawan" id="karyawan" class="form-select border-0 border-buttom" required>
+                                            <select name="karyawan" id="karyawan" class="form-select border-0 border-buttom" disabled>
                                             <option value="" selected disabled>--Pilih--</option>
                                             <?php
-                                            $id_karyawan = $data['id_karyawan'];
+                                            $id_karyawan = $dataPelkry['id_karyawan'];
                                             $queryKaryawan = mysqli_query($koneksi, "SELECT * FROM tbl_karyawan");
-                                            while ($data = mysqli_fetch_array($queryKaryawan)){
-                                                $id = $data['id'];
-                                                $nama = $data['nama'];
+                                            
+                                            while ($dataKaryawan = mysqli_fetch_array($queryKaryawan)){
+                                                $id = $dataKaryawan['id'];
+                                                $nama = $dataKaryawan['nama'];
                                                 if ($id == $id_karyawan) {
                                                     $pilih = "selected";
                                                 } else {
@@ -96,6 +96,42 @@ $data = mysqli_fetch_array($queryPelKry);
                                         </div>
                                         </div>
                                     </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="mb-3 row">
+                                            <label for="karyawan" class="col-sm-2 col-form-label">Total Durasi Pelatihan</label>
+                                            <label for="karyawan" class="col-sm-1 col-form-label">:</label>
+                                            <div class="col-sm-9" style="margin-left: -50px;">
+                                                <?php
+                                                $id = $_GET['id'];
+                                                $queryTotal = mysqli_query($koneksi, "SELECT SUM(jumlah_jam) AS TotalJam FROM tbl_pelatihan WHERE id_pelkry = $id");
+                                                $dataTotal = mysqli_fetch_array($queryTotal);
+                                                
+                                                ?>
+                                                <input type="text" name="totaljam" class="form-control" id="totaljam" value="<?=$dataTotal ['TotalJam']?>" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <br>
+                                <button type="submit" name="update" class="btn btn-primary float-end"><i class="fa-solid fa-floppy-disk"></i>Update</button>
+                                <br><br>
+                                <div class="row">
+                                    <div class="col-12-sm">
+                                    <table class="table table-hover" id="datatablesSimple">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col"><center>Nama Pelatihan</center></th>
+                                            <th scope="col"><center>Jumlah Jam Pelatihan</center></th>
+                                            <th scope="col"><center>Tanggal Pelatihan</center></th>
+                                            <th scope="col"><center>Operasi</center></th>
+                                            </tr>
+                                        </thead>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

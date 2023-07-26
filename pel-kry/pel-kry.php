@@ -67,12 +67,13 @@ if ($msg == 'updated') {
                             $queryPelKry = mysqli_query($koneksi, "SELECT * FROM tbl_pelkry");
                             while ($data = mysqli_fetch_array($queryPelKry)){
                                 $id = $data['id'];
+                                
                             ?>
                             <tr>
                             <th scope="row"><?= $no++ ?></th>
                             <td><?= $data['nm_periode'] ?></td>
                             <td><?= $data['nm_karyawan'] ?></td>
-                            <td><?= $data['unit'] ?></td>
+                            <td><?= $data['unit'];?></td>
                             <td align="center">
                                 <a href="edit-pelkry.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-warning" title="Update Pelatihan Karyawan"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <button type="button" class="btn btn-sm btn-danger" id="btnHapus" title="Hapus Pelatihan " data-id="<?= $id ?>" ><i class="fa-solid fa-trash"></i></button>

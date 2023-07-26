@@ -59,22 +59,46 @@ if ($msg == 'added') {
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="mb-3 row">
-                                            <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                                            <label for="nama" class="col-sm-2 col-form-label">Nama Pelatihan</label>
                                             <label for="nama" class="col-sm-1 col-form-label">:</label>
                                         <div class="col-sm-9" style="margin-left: -50px;">
                                             <input type="text" name="nama" class="form-control-plaintext border-bottom ps-2" id="nama" value="" required>
                                         </div> 
                                         </div>
                                         <div class="mb-3 row">
-                                            <label for="karyawan" class="col-sm-2 col-form-label">Karyawan</label>
-                                            <label for="nama" class="col-sm-1 col-form-label">:</label>
+                                        <label for="karyawan" class="col-sm-2 col-form-label">Karyawan</label>
+                                            <label for="karyawan" class="col-sm-1 col-form-label">:</label>
                                         <div class="col-sm-9" style="margin-left: -50px;">
-                                        <select name="karyawan" id="karyawan" class="form-select border-0 border-buttom" required>
-                                            <option value="" selected disabled>--karyawan--</option>
+                                            <select name="karyawan" id="karyawan" class="form-select border-0 border-buttom" required>
+                                            <option value="" selected disabled>--Pilih--</option>
                                             <?php
-
-                                            $queryKaryawan = mysqli_query($koneksi, "SELECT * FROM tbl_karyawan WHERE nama = '$nama'");
-                                            while ($data = mysqli_fetch_array($queryKaryawan)){
+                                            $id_karyawan = $dataPelkry['id_karyawan'];
+                                            $queryKaryawan = mysqli_query($koneksi, "SELECT * FROM tbl_karyawan");
+                                            while ($dataKaryawan = mysqli_fetch_array($queryKaryawan)){
+                                                $id = $dataKaryawan['id'];
+                                                $nama = $dataKaryawan['nama'];
+                                                if ($id == $id_karyawan) {
+                                                    $pilih = "selected";
+                                                } else {
+                                                    $pilih = "";
+                                                }
+                                            ?>
+                                            <option value="<?= $id?>" <?= $pilih?>><?= $nama ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                            </select>
+                                        </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                        <label for="periode" class="col-sm-2 col-form-label">Periode</label>
+                                            <label for="periode" class="col-sm-1 col-form-label">:</label>
+                                        <div class="col-sm-9" style="margin-left: -50px;">
+                                            <select name="periode" id="periode" class="form-select border-0 border-buttom" required>
+                                            <option value="" selected disabled>--Pilih periode--</option>
+                                            <?php
+                                            $queryPelKry = mysqli_query($koneksi, "SELECT * FROM tbl_periode") or die (mysqli_error($koneksi));
+                                            while ($data = mysqli_fetch_array($queryPelKry)){
                                                 $id = $data['id'];
                                                 $nama = $data['nama'];
                                             ?>
@@ -82,15 +106,8 @@ if ($msg == 'added') {
                                             <?php
                                             }
                                             ?>
-                                        </select>
-                                        </div> 
+                                            </select>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="periode" class="col-sm-2 col-form-label">Periode</label>
-                                            <label for="nama" class="col-sm-1 col-form-label">:</label>
-                                        <div class="col-sm-9" style="margin-left: -50px;">
-                                            <input type="text" name="periode" class="form-control-plaintext border-bottom ps-2" id="periode" value="" required>
-                                        </div> 
                                         </div>
                                         <div class="mb-3 row">
                                             <label for="nama" class="col-sm-2 col-form-label">Tanggal Mulai</label>

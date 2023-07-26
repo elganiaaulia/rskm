@@ -38,7 +38,7 @@ require_once "../template/sidebar.php";
                         <thead>
                             <tr>
                             <th scope="col">No</th>
-                            <th scope="col"><center>Nama</center></th>
+                            <th scope="col"><center>Nama Pelatihan</center></th>
                             <th scope="col"><center>Tanggal Mulai</center></th>
                             <th scope="col"><center>Tanggal Selesai</center></th>
                             <th scope="col"><center>Jumlah Jam</center></th>

@@ -89,8 +89,13 @@ if ($msg == 'added') {
                                             while ($data = mysqli_fetch_array($queryPelKry)){
                                                 $id = $data['id'];
                                                 $nama = $data['nama'];
+                                                $id_unit = $data['id_unit'];
+                                                $nm_unit = $data['nm_unit'];
+
                                             ?>
-                                            <option value="<?= $id?>"><?= $nama ?></option>
+                                            <option value="<?= $id ?>"><?= $nama ?></option>
+                                           
+
                                             <?php
                                             }
                                             ?>
