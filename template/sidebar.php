@@ -43,10 +43,10 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-receipt"></i></div>
                                 Pelatihan
                             </a>
-                            <a class="nav-link" href="<?= $main_url?>index.php">
+                            <!-- <a class="nav-link" href="<?= $main_url?>index.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-book"></i></div>
                                 Hasil
-                            </a>
+                            </a> -->
                             <hr class="mb-0">
                         </div>
                     </div>

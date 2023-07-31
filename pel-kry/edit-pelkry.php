@@ -29,7 +29,7 @@ $dataPelkry = mysqli_fetch_array($queryPelKry);
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                             <li class="breadcrumb-item"><a href="pel-kry.php">Pelatihan Karyawan</a></li>
-                            <li class="breadcrumb-item active">Update Pelatihan Karyawan</li>
+                            <li class="breadcrumb-item active">Tampil Pelatihan Karyawan</li>
                         </ol>
                         <form action="proses-pelkry.php" method="POST" enctype="multipart/form-data">
                         <div class="card">
@@ -108,30 +108,47 @@ $dataPelkry = mysqli_fetch_array($queryPelKry);
                                                 $id = $_GET['id'];
                                                 $queryTotal = mysqli_query($koneksi, "SELECT SUM(jumlah_jam) AS TotalJam FROM tbl_pelatihan WHERE id_pelkry = $id");
                                                 $dataTotal = mysqli_fetch_array($queryTotal);
-                                                
                                                 ?>
-                                                <input type="text" name="totaljam" class="form-control" id="totaljam" value="<?=$dataTotal ['TotalJam']?>" required>
+                                                <input type="text" name="totaljam" class="form-control" id="totaljam" value="<?=$dataTotal ['TotalJam']?>" disabled>
                                             </div>
                                         </div>
                                     </div>
                                     
                                 </div>
                                 <br>
-                                <button type="submit" name="update" class="btn btn-primary float-end"><i class="fa-solid fa-floppy-disk"></i>Update</button>
+                                <a href = "add-history.php?id=<?=$id?>"  class="btn btn-primary float-end"><i class="fa-solid fa-plus"></i>Tambah</a>
                                 <br><br>
                                 <div class="row">
                                     <div class="col-12-sm">
+                                    <form action="proses-pelkry.php" method="POST" enctype="multipart/form-data">
                                     <table class="table table-hover" id="datatablesSimple">
                                         <thead>
                                             <tr>
                                             <th scope="col"><center>Nama Pelatihan</center></th>
-                                            <th scope="col"><center>Jumlah Jam Pelatihan</center></th>
                                             <th scope="col"><center>Tanggal Pelatihan</center></th>
-                                            <th scope="col"><center>Operasi</center></th>
+                                            <th scope="col"><center>Durasi Pelatihan</center></th>
+                                            <th scope="col"><center>Action</center></th>
                                             </tr>
                                         </thead>
+                                        <tbody>
+                                            <?php
+                                            $queryHistory = mysqli_query($koneksi, "SELECT * FROM tbl_history");
+                                            while ($data = mysqli_fetch_array($queryHistory)){
+                                                $id = $data['id'];
+                                            ?>
+                                            <tr>
+                                            <td><?= $data['nm_pelatihan'] ?></td>
+                                            <td><?= $data['tgl_pelatihan'] ?></td>
+                                            <td><?= $data['durasi'] ?></td>
+                                            <td align="center">
+                                                <button type="button" class="btn btn-sm btn-danger" id="btnHapus" title="Hapus karyawan" data-id="<?= $id ?>" ><i class="fa-solid fa-trash"></i></button>
+                                            </td>
+                                            </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                    </form>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>

@@ -59,6 +59,7 @@ if ($msg == 'updated') {
                             <th scope="col"><center>Periode</center></th>
                             <th scope="col"><center>Karyawan</center></th>
                             <th scope="col"><center>Unit</center></th>
+                            <th scope="col"><center>Total Durasi</center></th>
                             <th scope="col"><center>Operasi</center></th>
                         </thead>
                         <tbody>
@@ -74,6 +75,7 @@ if ($msg == 'updated') {
                             <td><?= $data['nm_periode'] ?></td>
                             <td><?= $data['nm_karyawan'] ?></td>
                             <td><?= $data['unit'];?></td>
+                            <td><?= $data['total_durasi'];?></td>
                             <td align="center">
                                 <a href="edit-pelkry.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-warning" title="Update Pelatihan Karyawan"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <button type="button" class="btn btn-sm btn-danger" id="btnHapus" title="Hapus Pelatihan " data-id="<?= $id ?>" ><i class="fa-solid fa-trash"></i></button>

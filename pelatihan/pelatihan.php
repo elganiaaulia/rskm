@@ -41,7 +41,7 @@ require_once "../template/sidebar.php";
                             <th scope="col"><center>Nama Pelatihan</center></th>
                             <th scope="col"><center>Tanggal Mulai</center></th>
                             <th scope="col"><center>Tanggal Selesai</center></th>
-                            <th scope="col"><center>Jumlah Jam</center></th>
+                            <th scope="col"><center>Durasi Pelatihan</center></th>
                             <th scope="col"><center>Bukti</center></th>
                             <th scope="col"><center>Operasi</center></th>
                         </thead>

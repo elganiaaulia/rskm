@@ -49,4 +49,11 @@ if (isset($_POST['update'])) {
     header('location:pel-kry.php?msg=updated');
     return;
 }
+if(isset($_POST['simpanhistory'])) {
+    $nm_pelatihan   = $_POST['history'];
+    $durasi         = $_POST['durasi'];
+    $tgl_pelatihan  = $_POST['tgl_pelatihan'];
+    mysqli_query($koneksi, "INSERT INTO tbl_history (nm_pelatihan, durasi, tgl_pelatihan) VALUES ('$nm_pelatihan', '$durasi', '$tgl_pelatihan')");
+        header('location:pel-kry.php?msg=added');
+}
 ?>

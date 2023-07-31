@@ -91,17 +91,14 @@ if ($msg == 'added') {
                                                 $nama = $data['nama'];
                                                 $id_unit = $data['id_unit'];
                                                 $nm_unit = $data['nm_unit'];
-
                                             ?>
                                             <option value="<?= $id ?>"><?= $nama ?></option>
-                                           
-
                                             <?php
                                             }
                                             ?>
                                             </select>
                                         </div>
-                                    </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
