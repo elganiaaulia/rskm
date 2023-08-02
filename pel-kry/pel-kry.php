@@ -116,12 +116,11 @@ if ($msg == 'updated') {
     $(document).ready(function(){
         $(document).on('click', "#btnHapus", function(){
             $('#mdlHapus').modal('show');
-            let idPelatihan = $(this).data('id');
-            $('#mdlHapus').attr("href", "hapus-pelatihan.php?id=" + idPelatihan);
+            let idPelkry = $(this).data('id');
+            $('#mdlHapus').attr("href", "hapus-pelkry.php?id=" + idPelkry);
         })
     })
 </script>
-
 
 <?php 
 

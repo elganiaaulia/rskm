@@ -33,9 +33,9 @@ if ($msg == 'added') {
     </div>';
 }
 
+$id = $_GET['id']; 
 
 ?>
-
 
 <div id="layoutSidenav_content">
     <main>
@@ -64,33 +64,37 @@ if ($msg == 'added') {
                                     <label for="nama" class="col-sm-2 col-form-label">Pelatihan</label>
                                     <label for="nama" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-5" style="margin-left: -60px;">
-                                        <select class="form-select " name="namapelatihan" id="namapelatihan" required>
+                                        <select class="form-select " name="idpelatihan" id="idpelatihan" required>
                                             <option value="-" selected>- Pilih Nama Pelatihan -</option>
                                             <?php
                                             $query = mysqli_query($koneksi, "SELECT * FROM tbl_pelatihan ORDER BY nama ASC");
                                             while ($data = mysqli_fetch_array($query)) {
-                                                echo "<option value='" . $data['nama'] . "'>" . $data['nama'] . "</option>";
+                                                echo "<option value='" . $data['id'] . "'>" . $data['nama'] . "</option>";
                                             }
                                             ?>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="tgl" class="col-sm-2 col-form-label">Tanggal Pelatihan</label>
+                                    <label for="tgl" class="col-sm-2 col-form-label">Tanggal Mulai Pelatihan</label>
                                     <label for="tgl" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-5" style="margin-left: -60px;">
-                                        <select name="tgl_mulai" id="tgl_mulai" class="form-select border-0 border-buttom" required disabled>
-                                            <option value="-">--pilih tanggal mulai--</option>
-                                        </select>
+                                    <input type="text" class="form-control" id="tgl_mulai" disabled />
+                                    <input type="hidden" name="idpelkry" id="idpelkry" value="<?=$id?>"/>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="tgl" class="col-sm-2 col-form-label">Tanggal Selesai Pelatihan</label>
+                                    <label for="tgl" class="col-sm-1 col-form-label">:</label>
+                                    <div class="col-sm-5" style="margin-left: -60px;">
+                                    <input type="text" class="form-control" id="tgl_selesai" disabled />
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
                                     <label for="durasi" class="col-sm-2 col-form-label">Durasi</label>
                                     <label for="durasi" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-5" style="margin-left: -60px;">
-                                        <select class="form-select" name="jumlah_jam" id="jumlah_jam" required disabled>
-                                            <option value="-">--pilih durasi--</option>
-                                        </select>
+                                    <input type="text" class="form-control" id="jumlah_jam" disabled />
                                     </div>
                                 </div>
                             </div>
@@ -104,55 +108,31 @@ if ($msg == 'added') {
 <script>
 
 $(document).ready(function(){
-    $('#namapelatihan').change(function(){
-        var nm = $(this).val();
+    $('#idpelatihan').change(function(){
+        var id = $(this).val();
         $.ajax({
             type : 'POST',
             url : 'get_tglmulai.php',
             data : {
-                nm : nm
+                id :id
             },
             success:function(response){
-                console.log("success:" + response)
-                $("#tgl_mulai").prop("disabled", false).html(response);
-                $("#jumlah_jam").prop("disabled", false).html("<option value='-'>--Pilih durasi--</option>");
+                var result = JSON.parse(response)
+                console.log("success")
+
+                $("#tgl_mulai").val(result.tgl_mulai);
+                $("#tgl_selesai").val(result.tgl_selesai);
+                $("#jumlah_jam").val(result.jumlah_jam);
+                // $("#tgl_mulai").prop("disabled", false).html(response);
+                // $("#jumlah_jam").prop("disabled", true).html("<option value='-'>--Pilih durasi--</option>");
+            },
+            error:function(response){
+                alert("Error");
             }
-        })
-    })
+        });
+    });
 })
-
-
-
 </script>
-
-
-<!-- <script>
-    function get_tglmulai(data) {
-        var id = "id=" + data;
-        $.ajax({
-            type: 'POST',
-            url: 'get_tglmulai.php',
-            data: id,
-            success: function(hasil) {
-                $("#tgl_mulai").html(hasil);
-                $("#jumlah_jam").html('<option value="-">= Pilih Jumlah Jam/Durasi =</option>');
-            }
-        });
-    }
-
-    function getjumlahjam(durasi) {
-        var id = "id=" + durasi;
-        $.ajax({
-            type: 'POST',
-            url: 'getJumlahJam.php',
-            data: id,
-            success: function(hasil) {
-                $("#jumlah_jam").html(hasil);
-                $("#jumlah_jam").html('<option value="-">= Pilih Jumlah Jam/Durasi =</option>');
-            }
-        });
-    }
-</script> -->
 <?php
 
 require_once "../template/footer.php"

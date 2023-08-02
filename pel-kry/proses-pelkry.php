@@ -50,10 +50,16 @@ if (isset($_POST['update'])) {
     return;
 }
 if(isset($_POST['simpanhistory'])) {
-    $nm_pelatihan   = $_POST['history'];
-    $durasi         = $_POST['durasi'];
-    $tgl_pelatihan  = $_POST['tgl_pelatihan'];
-    mysqli_query($koneksi, "INSERT INTO tbl_history (nm_pelatihan, durasi, tgl_pelatihan) VALUES ('$nm_pelatihan', '$durasi', '$tgl_pelatihan')");
+    $idpelatihan   = $_POST['idpelatihan'];
+    $idpelkry   = $_POST['idpelkry'];
+    $sqlpelatihan     = mysqli_query($koneksi, "SELECT * FROM tbl_pelatihan where id = $idpelatihan");
+    $data            = mysqli_fetch_array($sqlpelatihan);
+    $nm_pelatihan = $data['nama'];
+    $durasi = $data['jumlah_jam'];
+    $tgl_mulai = $data['tgl_mulai'];
+    $tgl_selesai = $data['tgl_selesai'];
+
+    mysqli_query($koneksi, "INSERT INTO tbl_history (id_pelatihan, nm_pelatihan, id_pelkry, durasi, tgl_mulai, tgl_selesai) VALUES ('$idpelatihan', '$nm_pelatihan', $idpelkry, '$durasi', '$tgl_mulai', '$tgl_selesai')");
         header('location:pel-kry.php?msg=added');
 }
 ?>

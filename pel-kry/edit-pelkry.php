@@ -38,6 +38,9 @@ $dataPelkry = mysqli_fetch_array($queryPelKry);
                                 <span class="h5 my-2"><i class="fa-solid fa-pen-to-square"></i>Update Pelatihan Karyawan</span>
                             <div class="card-body">
                                 
+
+
+
                                 <div class="row">
                                     <div class="col-8">
                                         <input type="hidden" name="id" value="<?= $data['id'] ?>">
@@ -106,7 +109,7 @@ $dataPelkry = mysqli_fetch_array($queryPelKry);
                                             <div class="col-sm-9" style="margin-left: -50px;">
                                                 <?php
                                                 $id = $_GET['id'];
-                                                $queryTotal = mysqli_query($koneksi, "SELECT SUM(jumlah_jam) AS TotalJam FROM tbl_pelatihan WHERE id_pelkry = $id");
+                                                $queryTotal = mysqli_query($koneksi, "SELECT SUM(durasi) AS TotalJam FROM tbl_history WHERE id_pelkry = $id");
                                                 $dataTotal = mysqli_fetch_array($queryTotal);
                                                 ?>
                                                 <input type="text" name="totaljam" class="form-control" id="totaljam" value="<?=$dataTotal ['TotalJam']?>" disabled>
@@ -125,20 +128,23 @@ $dataPelkry = mysqli_fetch_array($queryPelKry);
                                         <thead>
                                             <tr>
                                             <th scope="col"><center>Nama Pelatihan</center></th>
-                                            <th scope="col"><center>Tanggal Pelatihan</center></th>
+                                            <th scope="col"><center>Tanggal Mulai</center></th>
+                                            <th scope="col"><center>Tanggal Selesai</center></th>
                                             <th scope="col"><center>Durasi Pelatihan</center></th>
                                             <th scope="col"><center>Action</center></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $queryHistory = mysqli_query($koneksi, "SELECT * FROM tbl_history");
+                                            $id = $_GET['id'];
+                                            $queryHistory = mysqli_query($koneksi, "SELECT * FROM tbl_history WHERE id_pelkry='$id'");
                                             while ($data = mysqli_fetch_array($queryHistory)){
                                                 $id = $data['id'];
                                             ?>
                                             <tr>
                                             <td><?= $data['nm_pelatihan'] ?></td>
-                                            <td><?= $data['tgl_pelatihan'] ?></td>
+                                            <td><?= $data['tgl_mulai'] ?></td>
+                                            <td><?= $data['tgl_selesai'] ?></td>
                                             <td><?= $data['durasi'] ?></td>
                                             <td align="center">
                                                 <button type="button" class="btn btn-sm btn-danger" id="btnHapus" title="Hapus karyawan" data-id="<?= $id ?>" ><i class="fa-solid fa-trash"></i></button>
