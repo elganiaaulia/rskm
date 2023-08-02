@@ -152,6 +152,25 @@ $dataPelkry = mysqli_fetch_array($queryPelKry);
                                             </tr>
                                             <?php } ?>
                                         </tbody>
+                                        <!-- modal hapus data -->
+                <div class="modal" id="mdlHapus" tabindex="-1">
+                <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Konfirmasi</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Anda yakin ingin menghapus data ini?</p>
+                        </div>
+                        <div class="modal-footer">
+                        <form action="proses-pelkry.php" method="POST" enctype="multipart/form-data">
+                        <button type="button" name="btnDelete" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <a href="hapus-history.php?id=<?= $id_history ?>" class="btn btn-primary">Ya</a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
                                     </table>
                                     </form>
                                     </div>
@@ -167,8 +186,8 @@ $dataPelkry = mysqli_fetch_array($queryPelKry);
     $(document).ready(function(){
         $(document).on('click', "#btnHapus", function(){
             $('#mdlHapus').modal('show');
-            let idPelhistory = $(this).data('id');
-            $('#mdlHapus').attr("href", "hapus-history.php?id=" + idPelhistory);
+            let id_history = $(this).data('id');
+            $('#mdlHapus').attr("href", "hapus-history.php?id=" + id_history);
         })
     })
 </script>

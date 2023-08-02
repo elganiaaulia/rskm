@@ -111,10 +111,10 @@ $(document).ready(function(){
     $('#idpelatihan').change(function(){
         var id = $(this).val();
         $.ajax({
-            type : 'POST',
-            url : 'get_tglmulai.php',
-            data : {
-                id :id
+            type :'POST',
+            url  :'get_tglmulai.php',
+            data :{
+            id   :id
             },
             success:function(response){
                 var result = JSON.parse(response)
