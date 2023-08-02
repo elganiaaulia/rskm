@@ -84,6 +84,7 @@ if ($msg == 'updated') {
                             <?php } ?>
                         </tbody>
 
+                                
                                 <!-- modal hapus data -->
                 <div class="modal" id="mdlHapus" tabindex="-1">
                 <div class="modal-dialog">
@@ -96,7 +97,7 @@ if ($msg == 'updated') {
                             <p>Anda yakin ingin menghapus data ini?</p>
                         </div>
                         <div class="modal-footer">
-                        <form action="proses-pelatihan.php" method="POST" enctype="multipart/form-data">
+                        <form action="proses-pelkry.php" method="POST" enctype="multipart/form-data">
                         <button type="button" name="btnDelete" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                             <a href="hapus-pelkry.php?id=<?= $id ?>" class="btn btn-primary">Ya</a>
                         </div>
@@ -110,8 +111,7 @@ if ($msg == 'updated') {
 </div>
                         </div>
                 </main>
-
-
+                
 <script>
     $(document).ready(function(){
         $(document).on('click', "#btnHapus", function(){

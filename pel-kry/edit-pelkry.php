@@ -162,6 +162,17 @@ $dataPelkry = mysqli_fetch_array($queryPelKry);
                     </div>
                 </main>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $(document).on('click', "#btnHapus", function(){
+            $('#mdlHapus').modal('show');
+            let idPelhistory = $(this).data('id');
+            $('#mdlHapus').attr("href", "hapus-history.php?id=" + idPelhistory);
+        })
+    })
+</script>
+
 <?php 
 
 require_once "../template/footer.php"
