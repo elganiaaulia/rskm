@@ -166,7 +166,7 @@ $dataPelkry = mysqli_fetch_array($queryPelKry);
                         <div class="modal-footer">
                         <form action="proses-pelkry.php" method="POST" enctype="multipart/form-data">
                         <button type="button" name="btnDelete" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                            <a href="hapus-history.php?id=<?= $id_history ?>" class="btn btn-primary">Ya</a>
+                            <a href="hapus-history.php?id=<?= $id ?>" class="btn btn-primary">Ya</a>
                         </div>
                         </div>
                     </div>
