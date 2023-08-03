@@ -69,7 +69,7 @@ if ($msg == 'cancel2') {
                     </div>
                     <div class="card">
                     <div class="card-header">
-                        <span class = "h5 my-2" ><i class="fa-solid fa-list"></i>Data Karyawan</span>
+                        <span class = "h5 my-2" ><i class="fa-solid fa-list"></i> Data Karyawan</span>
                         <a href="<?= $main_url?>karyawan/add-karyawan.php" class="btn btn-sm btn-primary float-end"><i class="fa-solid fa-plus"></i>Tambah</a>
                     </div>
                     <div class="card-body">

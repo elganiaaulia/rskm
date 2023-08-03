@@ -26,7 +26,7 @@ require_once "../template/sidebar.php";
                     </div>
                     <div class="card">
                     <div class="card-header">
-                        <span class = "h5 my-2" ><i class="fa-solid fa-list"></i>Pelatihan</span>
+                        <span class = "h5 my-2" ><i class="fa-solid fa-list"></i> Pelatihan</span>
                         <a href="<?= $main_url?>pelatihan/add-pelatihan.php" class="btn btn-sm btn-primary float-end"><i class="fa-solid fa-plus"></i>Tambah</a>
                     </div>
                     <div class="card-body">

@@ -44,7 +44,7 @@ if ($msg == 'updated') {
                     </div>
                     <div class="card">
                     <div class="card-header">
-                        <span class = "h5 my-2" ><i class="fa-solid fa-list"></i>Pelatihan Karyawan</span>
+                        <span class = "h5 my-2" ><i class="fa-solid fa-list"></i> Pelatihan Karyawan</span>
                         <a href="<?= $main_url?>pel-kry/add-pelkry.php" class="btn btn-sm btn-primary float-end"><i class="fa-solid fa-plus"></i>Tambah</a>
                     </div>
                     <div class="card-body">
@@ -111,7 +111,7 @@ if ($msg == 'updated') {
 </div>
                         </div>
                 </main>
-                
+
 <script>
     $(document).ready(function(){
         $(document).on('click', "#btnHapus", function(){
