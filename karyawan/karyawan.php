@@ -69,7 +69,8 @@ if ($msg == 'cancel2') {
                     </div>
                     <div class="card">
                     <div class="card-header">
-                        <span class = "h5 my-2" ><i class="fa-solid fa-list"></i> Data Karyawan</span>
+                        <span class = "h5 my-3" ><i class="fa-solid fa-list"></i> Data Karyawan</span>
+                        <a href="<?= $main_url?>karyawan/import.php" class="btn btn-sm btn-primary float-end"><i class="fa-solid fa-plus"></i>import file</a>
                         <a href="<?= $main_url?>karyawan/add-karyawan.php" class="btn btn-sm btn-primary float-end"><i class="fa-solid fa-plus"></i>Tambah</a>
                     </div>
                     <div class="card-body">
@@ -84,7 +85,7 @@ if ($msg == 'cancel2') {
                             <th scope="col"><center>NIK</center></th>
                             <th scope="col"><center>Nama</center></th>
                             <th scope="col"><center>Unit</center></th>
-                            <th scope="col"><center>Jumlah Jam Pelatihan</center></th>
+                            <!-- <th scope="col"><center>Jumlah Jam Pelatihan</center></th> -->
                             <th scope="col"><center>Operasi</center></th>
                             </tr>
                         </thead>
@@ -100,7 +101,7 @@ if ($msg == 'cancel2') {
                             <td><?= $data['nik'] ?></td>
                             <td><?= $data['nama'] ?></td>
                             <td><?= $data['unit'] ?></td>
-                            <td><?= $data['jumlahjam'] ?></td>
+                            <!-- <td><?= $data['jumlahjam'] ?></td> -->
                             <td align="center">
                                 <a href="edit-karyawan.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-warning" title="Update Karyawan"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <button type="button" class="btn btn-sm btn-danger" id="btnHapus" title="Hapus karyawan" data-id="<?= $id ?>" ><i class="fa-solid fa-trash"></i></button>

@@ -48,7 +48,7 @@ require_once "../template/sidebar.php";
                         <tbody>
                             <?php
                             $no = 1;
-                            $queryPelatihan = mysqli_query($koneksi, "SELECT * FROM tbl_pelatihan");
+                            $queryPelatihan = mysqli_query($koneksi, "SELECT * FROM tbl_pelatihan ORDER BY nama ASC");
                             while ($data = mysqli_fetch_array($queryPelatihan)){
                                 $id = $data['id'];
                             ?>

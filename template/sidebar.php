@@ -14,10 +14,10 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                                 User
                             </a>
-                            <a class="nav-link" href="<?= $main_url ?>user/password.php">
+                            <!-- <a class="nav-link" href="<?= $main_url ?>user/password.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-key"></i></div>
                                 Ganti Password
-                            </a>
+                            </a> -->
                             <div class="sb-sidenav-menu-heading">Data</div>
                             <!-- <a class="nav-link" href="<?= $main_url?>index.php">
                                 <div class="sb-nav-link-icon"><i class="fa-duotone fa-folder-gear"></i></i></div>
