@@ -75,7 +75,25 @@ if (isset($_POST['update'])) {
 
     }
 
-    
+    if (isset($_POST['simpanimport'])) {
+        $err        = "";
+        $ekstensi   = "";
+        $success    = "";
+
+        $file_name  = $_FILES['import']['name'];
+        $file_data  = $_FILES['import']['tmp_name'];
+        
+        if (empty($file_name)){
+            $err .= "<li>Silahkan masukkan file </li>";
+        }else{
+            $ekstensi   = pathinfo($file_name)['extension'];
+        }
+
+        $ekstensi_allowed = array("xls","xlsx");
+        if(!in_array($ekstensi,$ekstensi_allowed)){
+            $err .="<li>Silahkan masukkan file tipe xls, atau xlsx. File yang kamu masukkan <b>$file_name</b> memiliki tipe <b>$ekstensi</b></li>";
+        }
+    }
 }
 
 ?>

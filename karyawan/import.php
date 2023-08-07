@@ -31,7 +31,7 @@ require_once "../template/sidebar.php";
                         <div class="card">
                             <div class="card-header">
                                 <span class="h5 my-2"><i class="fa-solid fa-plus"></i> Import File Karyawan</span>
-                                <button type="submit" name="simpan" class="btn btn-primary float-end"><i class="fa-solid fa-floppy-disk"></i> Upload File</button>
+                                <button type="submit" name="simpanimport" class="btn btn-primary float-end"><i class="fa-solid fa-floppy-disk"></i> Upload File</button>
                             </div>
                             <div class="card-body">
                                 <div class="row">

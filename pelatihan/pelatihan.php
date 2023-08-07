@@ -43,7 +43,7 @@ require_once "../template/sidebar.php";
                             <th scope="col"><center>Tanggal Selesai</center></th>
                             <th scope="col"><center>Durasi Pelatihan</center></th>
                             <th scope="col"><center>Bukti</center></th>
-                            <th scope="col"><center>Operasi</center></th>
+                            <th scope="col"><center>Aksi</center></th>
                         </thead>
                         <tbody>
                             <?php
@@ -60,7 +60,6 @@ require_once "../template/sidebar.php";
                             <td><?= $data['jumlah_jam'] ?></td>
                             <td><?= $data['bukti'] ?></td>
                             <td align="center">
-                                <a href="edit-pelatihan.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-warning" title="Update Pelatihan"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <button type="button" class="btn btn-sm btn-danger" id="btnHapus" title="Hapus Pelatihan" data-id="<?= $id ?>" ><i class="fa-solid fa-trash"></i></button>
                             </td>
                             </tr>

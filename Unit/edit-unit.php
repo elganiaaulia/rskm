@@ -27,7 +27,7 @@ $data = mysqli_fetch_array($queryUnit);
                         <h1 class="mt-4">Update Unit</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
-                            <li class="breadcrumb-item"><a href="karyawan.php">Unit</a></li>
+                            <li class="breadcrumb-item"><a href="unit.php">Unit</a></li>
                             <li class="breadcrumb-item active">Update Unit</li>
                         </ol>
                         <form action="proses-unit.php" method="POST" enctype="multipart/form-data">

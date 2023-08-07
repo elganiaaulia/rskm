@@ -17,11 +17,12 @@ if(isset($_POST['simpan'])) {
     $tglmulai       = $_POST['tgl_mulai'];
     $tglselesai     = $_POST['tgl_selesai'];
     $jumlahjam      = $_POST['jumlah_jam'];
-    $bukti          = htmlspecialchars($_POST['bukti']);
+    $bukti          = "bukti/";
+    $file_name      = $_FILES['bukti']['name'];
+    move_uploaded_file($_FILES['bukti']['tmp_name'],$bukti.$file_name);
 
-    mysqli_query($koneksi, "INSERT INTO tbl_pelatihan (nama, tgl_mulai, tgl_selesai, jumlah_jam, bukti) VALUES ('$nama', '$tglmulai', '$tglselesai', '$jumlahjam', '$bukti')");
+    mysqli_query($koneksi, "INSERT INTO tbl_pelatihan (nama, tgl_mulai, tgl_selesai, jumlah_jam, bukti) VALUES ('$nama', '$tglmulai', '$tglselesai', '$jumlahjam', '$file_name')");
         header('location:pelatihan.php?msg=added');
-
 }
 if (isset($_POST['update'])) {
     $id         = $_POST['id'];

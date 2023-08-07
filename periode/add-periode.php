@@ -59,7 +59,7 @@ if ($msg == 'added') {
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="mb-3 row">
-                                            <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                                            <label for="nama" class="col-sm-2 col-form-label">Tahun</label>
                                             <label for="nama" class="col-sm-1 col-form-label">:</label>
                                         <div class="col-sm-9" style="margin-left: -50px;">
                                             <input type="text" name="nama" class="form-control-plaintext border-bottom ps-2" id="nama" value="" required>
