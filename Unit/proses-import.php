@@ -40,11 +40,13 @@ if (isset($_POST['simpanimport'])) {
         $jumlahData = 0;
         for ($i=1; $i<count($sheetData);$i++){
             $unit = $sheetData[$i]['0'];
+            if ($unit !="") {
+                $sqlimport = "INSERT INTO tbl_unit (nama) VALUES ('$unit')";
+                mysqli_query($koneksi,$sqlimport);
+                $jumlahData++;
+            }
             // echo "$unit <br/>";
 
-            $sqlimport = "INSERT INTO tbl_unit (nama) VALUES ($unit)";
-            mysqli_query($koneksi,$sqlimport);
-            $jumlahData++;
         }
         if($jumlahData > 0){
             $success = "$jumlahData berhasil dimasukkan ke MySQL";
