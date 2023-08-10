@@ -70,7 +70,7 @@ if ($msg == 'cancel2') {
                     <div class="card">
                     <div class="card-header">
                         <span class = "h5 my-3" ><i class="fa-solid fa-list"></i> Data Karyawan</span>
-                        <a href="<?= $main_url?>karyawan/import.php" class="btn btn-sm btn-primary float-end"><i class="fa-solid fa-plus"></i>import file</a>
+                        <a href="<?= $main_url?>karyawan/import-karyawan.php" class="btn btn-sm btn-primary float-end"><i class="fa-solid fa-plus"></i>import file</a>
                         <a href="<?= $main_url?>karyawan/add-karyawan.php" class="btn btn-sm btn-primary float-end"><i class="fa-solid fa-plus"></i>Tambah</a>
                     </div>
                     <div class="card-body">
@@ -104,7 +104,7 @@ if ($msg == 'cancel2') {
                             <!-- <td><?= $data['jumlahjam'] ?></td> -->
                             <td align="center">
                                 <a href="edit-karyawan.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-warning" title="Update Karyawan"><i class="fa-solid fa-pen-to-square"></i></a>
-                                <button type="button" class="btn btn-sm btn-danger" id="btnHapus" title="Hapus karyawan" data-id="<?= $id ?>" ><i class="fa-solid fa-trash"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger" id="btnHapus" onclick="deletekaryawan(<?= $id ?>)" title="Hapus karyawan" data-id="<?= $id ?>" ><i class="fa-solid fa-trash"></i></button>
                             </td>
                             </tr>
                             <?php } ?>
@@ -124,7 +124,7 @@ if ($msg == 'cancel2') {
                         <div class="modal-footer">
                         <form action="proses-karyawan.php" method="POST" enctype="multipart/form-data">
                         <button type="button" name="btnDelete" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                            <a href="hapus-karyawan.php?id=<?= $id ?>" class="btn btn-primary">Ya</a>
+                            <a href="" id="btnkonf" class="btn btn-primary">Ya</a>
                         </div>
                         </div>
                     </div>
@@ -138,13 +138,10 @@ if ($msg == 'cancel2') {
 
 
 <script>
-    $(document).ready(function(){
-        $(document).on('click', "#btnHapus", function(){
-            $('#mdlHapus').modal('show');
-            let idKaryawan = $(this).data('id');
-            $('#mdlHapus').attr("href", "hapus-karyawan.php?id=" + idKaryawan);
-        })
-    })
+    function deletekaryawan(id) {
+        $('#mdlHapus').modal('show');
+        $('#btnkonf').attr("href", "hapus-karyawan.php?id=" + id);
+    }
 </script>
 
 

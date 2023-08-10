@@ -93,6 +93,21 @@ if (isset($_POST['update'])) {
         if(!in_array($ekstensi,$ekstensi_allowed)){
             $err .="<li>Silahkan masukkan file tipe xls, atau xlsx. File yang kamu masukkan <b>$file_name</b> memiliki tipe <b>$ekstensi</b></li>";
         }
+        if($err){
+            ?>
+            <div class="alert alert-danger">
+                <ul><?= $err ?></ul>
+            </div>
+            <?php
+        }
+
+        if ($success) {
+            ?>
+            <div class="alert alert-primary">
+                <?= $success ?>
+            </div>
+            <?php
+        }
     }
 }
 

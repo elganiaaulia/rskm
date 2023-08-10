@@ -37,6 +37,12 @@ if ($msg == 'updated') {
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
 }
+if ($msg == 'cancelimport') {
+    $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-exclamation"></i> Silahkan masukkan file tipe xls, atau xlsx.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+}
 
 
 ?>
@@ -53,6 +59,7 @@ if ($msg == 'updated') {
                     <div class="card">
                     <div class="card-header">
                         <span class = "h5 my-2" ><i class="fa-solid fa-list"></i> Unit</span>
+                        <a href="<?= $main_url?>unit/import-unit.php" class="btn btn-sm btn-primary float-end"><i class="fa-solid fa-plus"></i>import file</a>
                         <a href="<?= $main_url?>unit/add-unit.php" class="btn btn-sm btn-primary float-end"><i class="fa-solid fa-plus"></i>Tambah</a>
                     </div>
                     <div class="card-body">
@@ -81,7 +88,7 @@ if ($msg == 'updated') {
                             <td><?= $data['statusaktif'] ?></td>
                             <td align="center">
                                 <a href="edit-unit.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-warning" title="Update Unit"><i class="fa-solid fa-pen-to-square"></i></a>
-                                <button type="button" class="btn btn-sm btn-danger" id="btnHapus" title="Hapus unit" data-id="<?= $id ?>" ><i class="fa-solid fa-trash"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger" id="btnHapus" onclick="deleteunit(<?= $id ?>)" title="Hapus unit" data-id="<?= $id ?>" ><i class="fa-solid fa-trash"></i></button>
                             </td>
                             </tr>
                             <?php } ?>
@@ -101,7 +108,7 @@ if ($msg == 'updated') {
                         <div class="modal-footer">
                         <form action="proses-unit.php" method="POST" enctype="multipart/form-data">
                         <button type="button" name="btnDelete" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                            <a href="hapus-unit.php?id=<?= $id ?>" class="btn btn-primary">Ya</a>
+                            <a href="" id="btnkonf" class="btn btn-primary">Ya</a>
                         </div>
                         </div>
                     </div>
@@ -116,13 +123,10 @@ if ($msg == 'updated') {
 
 
 <script>
-    $(document).ready(function(){
-        $(document).on('click', "#btnHapus", function(){
-            $('#mdlHapus').modal('show');
-            let idUnit = $(this).data('id');
-            $('#mdlHapus').attr("href", "hapus-unit.php?id=" + idUnit);
-        })
-    })
+    function deleteunit(id) {
+        $('#mdlHapus').modal('show');
+        $('#btnkonf').attr("href", "hapus-unit.php?id=" + id);
+    }
 </script>
 
 
